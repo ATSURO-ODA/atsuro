@@ -29,7 +29,7 @@ def hand_from_str(hand_str: str) -> Hand:
     raise ValueError("グー、チョキ、パー以外の値は入力できません")
 
 
-class Rps_Ai:
+class RpsAi:
     CHOICE_LIST = [Hand.ROCK, Hand.SCISSORS, Hand.PAPER]
 
     def __init__(self) -> None:
@@ -75,7 +75,7 @@ class Rps_Ai:
 
 
 def main():
-    ai = Rps_Ai()
+    ai = RpsAi()
     ai.play_game()
 
 
