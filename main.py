@@ -4,10 +4,10 @@ import random
 class RPS_AI:
     CHOICE_LIST = ["グー", "チョキ", "パー"]
 
-    def get_ai_choice(self):
+    def get_ai_choice(self) -> str:
         return random.choice(self.CHOICE_LIST)
 
-    def play_game(self):
+    def play_game(self) -> None:
         playerscore = 0
         AIscore = 0
 
