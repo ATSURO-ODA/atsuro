@@ -32,41 +32,41 @@ def hand_from_str(hand_str: str) -> Hand:
 class Rps_Ai:
     CHOICE_LIST = [Hand.ROCK, Hand.SCISSORS, Hand.PAPER]
 
+    def __init__(self) -> None:
+        self.player_score = 0
+        self.ai_score = 0
+
     def get_ai_choice(self) -> Hand:
         return random.choice(self.CHOICE_LIST)
 
-    def game(self) -> bool:
-        player_score = 0
-        ai_score = 0
-
+    def game(self) -> None:
         player_choice = input(
             "グー、チョキ、パー(終了する場合はqと入力してください)のいずれかを入力してください："
         )
+        if player_choice == "q":
+            print("終了します")
+            quit()
+
         player_hand = hand_from_str(player_choice)
 
         ai_hand = self.get_ai_choice()
 
-        if player_choice == "q":
-            print("終了します")
-            return False
-
-        elif player_choice == ai_hand:
+        if player_choice == ai_hand:
             print("あいこ")
 
         elif player_hand.is_winning(ai_hand):
             print("プレイヤーの勝ちです")
-            player_score += 1
+            self.player_score += 1
 
         else:
             print("AIの勝ちです")
-            ai_score += 1
-
-        print(f"\n最終スコア - プレイヤー: {player_score}, AI: {ai_score}")
+            self.ai_score += 1
 
     def play_game(self) -> None:
         for _ in range(10):
             if not self.game():
                 break
+        print(f"\n最終スコア - プレイヤー: {self.player_score}, AI: {self.ai_score}")
 
 
 def main():
