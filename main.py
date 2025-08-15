@@ -1,14 +1,11 @@
 import random
 
-choice_list = ["グー", "チョキ", "パー"]
-
 
 class RPS_AI:
-    def __init__(self) -> None:
-        pass
+    CHOICE_LIST = ["グー", "チョキ", "パー"]
 
     def get_ai_choice(self):
-        return random.choice(choice_list)
+        return random.choice(self.CHOICE_LIST)
 
     def play_game(self):
         playerscore = 0
