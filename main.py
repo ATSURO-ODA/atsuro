@@ -39,7 +39,7 @@ class Rps_Ai:
     def get_ai_choice(self) -> Hand:
         return random.choice(self.CHOICE_LIST)
 
-    def game(self) -> None:
+    def get_player_choice(self) -> Hand:
         player_choice = input(
             "グー、チョキ、パー(終了する場合はqと入力してください)のいずれかを入力してください："
         )
@@ -49,9 +49,14 @@ class Rps_Ai:
 
         player_hand = hand_from_str(player_choice)
 
+        return player_hand
+
+    def game(self) -> None:
+        player_hand = self.get_player_choice()
+
         ai_hand = self.get_ai_choice()
 
-        if player_choice == ai_hand:
+        if player_hand == ai_hand:
             print("あいこ")
 
         elif player_hand.is_winning(ai_hand):
