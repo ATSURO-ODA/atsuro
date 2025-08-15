@@ -8,8 +8,8 @@ class RPS_AI:
         return random.choice(self.CHOICE_LIST)
 
     def game(self) -> Bool:
-        playerscore = 0
-        AIscore = 0
+        player_score = 0
+        ai_score = 0
 
         player_choice = input(
             "グー、チョキ、パー(終了する場合はqと入力してください)のいずれかを入力してください："
@@ -29,13 +29,13 @@ class RPS_AI:
             or (player_choice == "パー" and ai_choice == "グー")
         ):
             print("プレイヤーの勝ちです")
-            playerscore += 1
+            player_score += 1
 
         else:
             print("AIの勝ちです")
-            AIscore += 1
+            ai_score += 1
 
-        print(f"\n最終スコア - プレイヤー: {playerscore}, AI: {AIscore}")
+        print(f"\n最終スコア - プレイヤー: {player_score}, AI: {ai_score}")
 
     def play_game(self) -> None:
         for _ in range(10):
