@@ -1,7 +1,7 @@
 import random
 
 
-class RPS_AI:
+class Rps_Ai:
     CHOICE_LIST = ["グー", "チョキ", "パー"]
 
     def get_ai_choice(self) -> str:
@@ -44,7 +44,7 @@ class RPS_AI:
 
 
 def main():
-    ai = RPS_AI()
+    ai = Rps_Ai()
     ai.play_game()
 
 
